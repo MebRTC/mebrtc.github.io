@@ -1,5 +1,5 @@
 function openStream(){
-    let config = {audio: false, video: true}
+    let config = {audio: false, video: true};
     return navigator.mediaDevices.getUserMedia(config);
 }
 
@@ -11,5 +11,11 @@ function playStream(idVideoTag ,stream){
 
 openStream()
 .then(stream => {
-    playStream("localStream", stream)
+    playStream("localStream", stream);
+})
+
+const peer = new Peer({key: "peerjs", host: 'peeranhlh2.herokuapp.com', secure: true, port: 443});
+
+peer.on('open', id => {
+    $('#myPeer').append(id);
 })
