@@ -1,4 +1,4 @@
-const socket = io('http://sockets.edubig.vn/')
+const socket = io('https://webrtcanhlh.herokuapp.com/')
 $('#info').hide();
 
 socket.on('USER_LIST', arrUser => {
