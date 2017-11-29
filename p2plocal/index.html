@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WebRTC PISN</title>
+        <script src="../jquery.js"></script>
+        <script src="../peer.js"></script>
+        <script src="../socket.io.js"></script>
+        <style type="text/css">
+            body div .stream{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="info">
+            <h3 id="myPeer">WebRTC Peer-To-Peer local</h3>              
+            </ul>
+            <div class="stream">
+                 <h4>localStream</h4>
+                <video id="localStream" width="300" controls></video>
+            </div>
+            <div class="stream">
+                <h4>remoteStream</h4>
+                <video id="remoteStream" width="300" controls></video>            
+            </div>
+            <div>
+                <button id="btnStart">Start</button>
+                <button id="btnCall">Call</button>
+            </div>    
+        </div>
+    </body>
+    <script src="p2pLocal.js"></script>
+</html>

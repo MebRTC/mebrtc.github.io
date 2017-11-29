@@ -499,7 +499,7 @@ Negotiator._startPeerConnection = function(connection) {
     // Interop req for chrome.
     optional = {optional: [{DtlsSrtpKeyAgreement: true}]};
   }
-
+  console.log(connection);
   var pc = new RTCPeerConnection(connection.provider.options.config, optional);
   Negotiator.pcs[connection.type][connection.peer][id] = pc;
 
@@ -790,6 +790,7 @@ function Peer(id, options) {
 
   // Start the server connection
   this._initializeServerConnection();
+  console.log("1");
   if (id) {
     this._initialize(id);
   } else {
@@ -828,6 +829,7 @@ Peer.prototype._initializeServerConnection = function() {
 
 /** Get a unique ID from the server via XHR. */
 Peer.prototype._retrieveId = function(cb) {
+
   var self = this;
   var http = new XMLHttpRequest();
   var protocol = this.options.secure ? 'https://' : 'http://';
@@ -835,7 +837,7 @@ Peer.prototype._retrieveId = function(cb) {
     this.options.path + this.options.key + '/id';
   var queryString = '?ts=' + new Date().getTime() + '' + Math.random();
   url += queryString;
-
+  console.log(url);
   // If there's no ID we need to wait for one before trying to init socket.
   http.open('get', url, true);
   http.onerror = function(e) {
