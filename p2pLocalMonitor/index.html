@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>WebRTC PISN</title>
+        <script src="../jquery.js"></script>
+        <script src="../peer.js"></script>
+        <script src="../socket.io.js"></script>
+        <style type="text/css">
+            body div .stream{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="info">
+            <h3 id="myPeer">WebRTC Peer-To-Peer local</h3>              
+            </ul>
+            <div class="stream">
+                 <h4>localStream</h4>
+                <video id="localStream" width="300" controls></video>
+            </div>
+            <div class="stream">
+                <h4>remoteStream</h4>
+                <video id="remoteStream" width="300" controls></video>            
+            </div>
+            <br/>
+            <div class="graph-container" id="bitrateGraph">
+                <div>Bitrate</div>
+                <canvas id="bitrateCanvas"></canvas>
+            </div>
+            <div class="graph-container" id="packetGraph">
+                <div>Packets sent per second</div>
+                <canvas id="packetCanvas"></canvas>
+            </div>
+            <div>
+                <label>Bandwidth:</label>
+                <select id="bandwidth" disabled>
+                    <option value="unlimited">unlimited</option>
+                    <option value="2000">2000</option>
+                    <option value="1000">1000</option>
+                    <option value="500" selected>500</option>
+                    <option value="250">250</option>
+                    <option value="125">125</option>
+                </select>
+              kbps
+            </div>
+            <div>
+                <button class="btn" id="btnCall">Call</button>
+                <button class="btn" id="hangupButton">Hangup</button>
+                <p type="text" id="statusCall"></p>
+            </div>    
+        </div>
+    </body>
+    <script src="p2pLocal.js"></script>
+    <script src="../third_party/graph.js"></script>
+    <!-- <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script> -->
+</html>

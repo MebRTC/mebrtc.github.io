@@ -2,32 +2,49 @@
 <html lang="en">
     <head>
         <title>WebRTC PISN</title>
-        <script src="jquery.js"></script>
-        <script src="peer.js"></script>
-        <script src="socket.io.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <style type="text/css">
             body div .stream{
                 display: inline-block;
             }
+            body div .btn{
+                display: inline-block;
+                height: 50px;
+                width: 200px;
+                background-color: red;
+                margin: 10px;
+                text-align: center;     
+                text-decoration: none;       
+            }
+            body div .btnlocal{
+                background-color: #37bf24;        
+            }
+            body div .btnstun{
+                background-color: #3865c5;        
+            }
+            body div .btnmonitor{
+                background-color: #111111;        
+            }
+            body div .btn small{
+                line-height: 50px;
+                color: white;
+                font-size: 20px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: bolder;
+            }
+
         </style>
     </head>
     <body>
         <div id="info">
-            <h3 id="myPeer">Call Peer to Peer via STUN and Socket.io </h3>              
-            </ul>
-            <div class="stream">
-                 <h4>localStream</h4>
-                <video id="localStream" width="300" controls></video>
-            </div>
-            <div class="stream">
-                <h4>remoteStream</h4>
-                <video id="remoteStream" width="300" controls></video>            
-            </div>
-            <div>
-                <button id="btnStart">Call</button>
-                <p type="text" id="statusCall"></p>
-            </div>    
+            <h3>Manhnv: Demo WebRTC P2P</h3>    
+            <div class="container">
+                 <a class="btn btnlocal" id="btnP2PLocal" href="/p2pLocal"><small>P2P Local</small></a>
+                 <a class="btn btnstun" id="btnP2PStun" href="/p2pStun"><small>P2P Stun</small></a>
+                 <a class="btn btnmonitor" id="btnP2PLocalMonitor" href="/p2pLocalMonitor"><small>P2P local monitor</small></a>
+                 <a class="btn btnmonitor" id="btnP2PStunMonitor" href="/p2pStunMonitor"><small>P2P stun monitor</small></a>
+            </div>   
         </div>
     </body>
-    <script src="webrtc.js"></script>
+    <script src="app.js"></script>
 </html>
